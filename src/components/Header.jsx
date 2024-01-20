@@ -8,7 +8,7 @@ import { DataContext } from '../context/dataContext';
 const Header = () => {
     const { isAuthenticated } = useAuth0();
     const [search, setSearch] = useState('')
-    const { store, setStore, detail, setDetail } = useContext(DataContext);
+    const { store, detail, setDetail } = useContext(DataContext);
     const [loading, setLoading] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [searchResults, setSearchResults] = useState([]);

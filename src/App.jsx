@@ -18,7 +18,7 @@ function App() {
   const { store, updateData } = useContext(DataContext);
   useEffect(() => {
     updateData(data);
-  }, []);
+  }, [data]);
   return (
     <>
       <Router>
