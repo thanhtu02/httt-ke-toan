@@ -13,7 +13,7 @@ const CandlestickChart = () => {
     }
 
     const chartData = {
-        labels: 'Biểu đồ đường',
+        labels: dataset.map(item => item.Date),
         datasets: [{
             label: 'Giá Close',
             data: dataset.map(item => item.Close),
