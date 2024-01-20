@@ -1,6 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../context/dataContext";
 import dataStock from "../api/bctc/stock.json"
+import CandlestickChart from "../components/CandlestickChart";
+import { CategoryScale } from 'chart.js';
+Chart.register(CategoryScale);
+import Chart from 'chart.js/auto';
 
 const DetailPage = () => {
     const { store, detail, setDetail } = useContext(DataContext);
@@ -60,53 +64,74 @@ const DetailPage = () => {
                     </div>
                 ))}
             </div>
-            <div className=" bg-white mt-28 border border-gray-300 px-4 py-2 rounded-[8px] gap-12">
-                {Object.keys(dataStock).map((e, index) => {
-                    return (
-                        <div key={index}
-                            className="text-left">
-                            {e === detail && (
-                                <div className="p-2">
-                                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                        <div className="flex text-left p-4 font-bold">
-                                            <p className="w-full p-2">Close</p>
-                                            <p className="w-full p-2 ml-3">Date</p>
-                                            <p className="w-full p-2 ml-8">High</p>
-                                            <p className="w-full p-2  ml-2">Low</p>
-                                            <p className="w-full p-2 ml-2">Open</p>
-                                            <p className="w-full p-2">Volume</p>
-                                        </div>
-                                        {dataStock[e].map((item, itemIndex) => (
-                                            <div key={itemIndex}>
-                                                <div>
-                                                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                                        <td className="px-6 py-4">
-                                                            <p className="">{item.Close}</p>
-                                                        </td>
-                                                        <td className="px-6 py-4">
-                                                            <p className="">{new Date(item.Date).toLocaleDateString()}</p></td>
-                                                        <td className="px-6 py-4">
-                                                            <p className="">{item.High}</p>
-                                                        </td>
-                                                        <td className="px-6 py-4">
-                                                            <p className="">{item.Low}</p>
-                                                        </td>
-                                                        <td className="px-6 py-4">
-                                                            <p className="">{item.Open}</p>
-                                                        </td>
-                                                        <td className="px-6 py-4">
-                                                            <p className="">{item.Volume}</p>
-                                                        </td>
-                                                    </tr>
-                                                </div>
-                                            </div>))}
-                                    </table>
-                                </div>
-                            )
-                            }
-                        </div>
-                    )
-                })}
+            
+            <div className="flex flex-col mt-28 gap-6">
+                <div> <CandlestickChart /> </div>
+                <div className="bg-white border border-gray-300 px-4 py-2 rounded-[8px]">
+                    <p className="text-left p-2 text-red-500 font-bold"> PE: 
+                        {detail === 'AAA' && <>  37.17 </>}
+                        {detail === 'AAM' && <>  133.74 </>}
+                        {detail === 'AAT' && <>  117.56 </>}
+                        {detail === 'AAV' && <>  -15.38 </>}
+                        {detail === 'ABR' && <>  6.90 </>}
+                    </p>
+                    <p className="text-left p-2 text-red-500 font-bold"> EPS:
+                        {detail === 'AAA' && <>  255 </>}
+                        {detail === 'AAM' && <>  67 </>}
+                        {detail === 'AAT' && <>  47 </>}
+                        {detail === 'AAV' && <>  -260 </>}
+                        {detail === 'ABR' && <>  1,963 </>}
+                    </p>
+                </div>
+                <div className="bg-white border border-gray-300 px-4 py-2 rounded-[8px]">
+                    {Object.keys(dataStock).map((e, index) => {
+                        return (
+                            <div key={index}
+                                className="text-left">
+                                {e === detail && (
+                                    <div className="p-2">
+                                        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            <div className="flex text-left p-4 font-bold">
+                                                <p className="w-full p-2">Close</p>
+                                                <p className="w-full p-2 ml-3">Date</p>
+                                                <p className="w-full p-2 ml-8">High</p>
+                                                <p className="w-full p-2  ml-2">Low</p>
+                                                <p className="w-full p-2 ml-2">Open</p>
+                                                <p className="w-full p-2">Volume</p>
+                                            </div>
+                                            {dataStock[e].map((item, itemIndex) => (
+                                                <div key={itemIndex}>
+                                                    <div>
+                                                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                            <td className="px-6 py-4">
+                                                                <p className="">{item.Close}</p>
+                                                            </td>
+                                                            <td className="px-6 py-4">
+                                                                <p className="">{new Date(item.Date).toLocaleDateString()}</p></td>
+                                                            <td className="px-6 py-4">
+                                                                <p className="">{item.High}</p>
+                                                            </td>
+                                                            <td className="px-6 py-4">
+                                                                <p className="">{item.Low}</p>
+                                                            </td>
+                                                            <td className="px-6 py-4">
+                                                                <p className="">{item.Open}</p>
+                                                            </td>
+                                                            <td className="px-6 py-4">
+                                                                <p className="">{item.Volume}</p>
+                                                            </td>
+                                                        </tr>
+                                                    </div>
+                                                </div>))}
+                                        </table>
+                                    </div>
+                                )
+                                }
+                            </div>
+                        )
+                    })}
+                </div>
+              
             </div>
         </div >
     )
