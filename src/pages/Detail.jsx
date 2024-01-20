@@ -68,28 +68,14 @@ const DetailPage = () => {
                             {e === detail && (
                                 <div className="p-2">
                                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                        <thread className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                            <tr className="w-full">
-                                                <th scope="col" className="px-6 py-3">
-                                                    Close
-                                                </th>
-                                                <th scope="col" className="px-6 py-3">
-                                                    Date
-                                                </th>
-                                                <th scope="col" className="px-12 py-3">
-                                                    High
-                                                </th>
-                                                <th scope="col" className="px-0 py-3">
-                                                    Low
-                                                </th>
-                                                <th scope="col" className="px-14 py-3">
-                                                    Open
-                                                </th>
-                                                <th scope="col" className="px-0 py-3">
-                                                    Volume
-                                                </th>
-                                            </tr>
-                                        </thread>
+                                        <div className="flex text-left p-4 font-bold">
+                                            <p className="w-full p-2">Close</p>
+                                            <p className="w-full p-2 ml-3">Date</p>
+                                            <p className="w-full p-2 ml-8">High</p>
+                                            <p className="w-full p-2  ml-2">Low</p>
+                                            <p className="w-full p-2 ml-2">Open</p>
+                                            <p className="w-full p-2">Volume</p>
+                                        </div>
                                         {dataStock[e].map((item, itemIndex) => (
                                             <div key={itemIndex}>
                                                 <div>
