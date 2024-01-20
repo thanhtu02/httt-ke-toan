@@ -12,18 +12,11 @@ const MarketPage = () => {
                 return (
                     <div key={index}
                         className="text-left">
-                        <button>
-                            <p className="text-gray-800 font-extrabold">
+                        <button className="p-2">
+                            <p className="text-gray-800 font-bold">
                                 {e}
                             </p>
                         </button>
-                        {/* {data[e].map((element, i) => {
-                            return (
-                                <div key={i}>
-                                    {element?.criteria}
-                                </div>
-                            )
-                        })} */}
                     </div>
                 )
             })}

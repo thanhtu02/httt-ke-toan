@@ -11,7 +11,7 @@ const routes = [{
     page: "/news"
 }, {
     id: 2,
-    title: 'Market',
+    title: 'Thị trường',
     page: "/market"
 }]
 
