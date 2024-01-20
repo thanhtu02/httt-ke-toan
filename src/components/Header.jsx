@@ -8,7 +8,7 @@ import { DataContext } from '../context/dataContext';
 const Header = () => {
     const { isAuthenticated } = useAuth0();
     const [search, setSearch] = useState('')
-    const { store, detail, setDetail } = useContext(DataContext);
+    const { store, setStore, detail, setDetail } = useContext(DataContext);
     const [loading, setLoading] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [searchResults, setSearchResults] = useState([]);
@@ -37,10 +37,9 @@ const Header = () => {
     }
     const handleSelectValue = (e) => {
         setDetail(e);
-        navigate('/detail')
         setSearch('')
+        navigate('/detail')
     }
-    console.log(detail)
     return (
         <>
             <div className="container w-full px-4 mx-auto">

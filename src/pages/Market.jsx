@@ -1,6 +1,7 @@
 
 import { useContext, useEffect } from 'react'
 import data from '../api/bctc/data.json'
+
 import { DataContext } from '../context/dataContext';
 
 const MarketPage = () => {
