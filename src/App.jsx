@@ -8,7 +8,7 @@ import DetailPage from './pages/Detail';
 import MarketPage from './pages/Market';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import data from '../api/bctc/data.json'
+import data from './api/bctc/data.json'
 import { DataContext } from './context/dataContext';
 
 function App() {
